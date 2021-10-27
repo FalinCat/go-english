@@ -16,7 +16,7 @@ class WordTableSeeder extends Seeder
     {
         Word::query()->truncate();
 
-        $fakerRu = \Faker\Factory::create('ru_RU');
+        $fakerRu = \Faker\Factory::create('Ru_RU');
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 100; $i++){
             Word::query()->create([
