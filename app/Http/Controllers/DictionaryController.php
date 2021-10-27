@@ -16,7 +16,7 @@ class DictionaryController extends Controller
 
     public function getWord($id)
     {
-        $word = Word::query()->find($id)->firstOrFail();
+        $word = Word::query()->find($id);
 
         if (!$word) {
             return response()->json(['error' => 'No such ID'])->status(404);
