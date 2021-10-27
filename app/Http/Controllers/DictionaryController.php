@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Word;
+use http\Client\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,8 +19,10 @@ class DictionaryController extends Controller
     {
         $word = Word::query()->find($id);
 
+
         if (!$word) {
-            return response()->json(['error' => 'No such ID'])->status(404);
+            $error = ['error' => 'No such ID'];
+            return response()->json($error, 404);
         }
 
         return response()->json($word);
