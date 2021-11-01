@@ -23,15 +23,24 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 //        $this->call(EnglishWordSeeder::class);
 
-        \Eloquent::unguard();
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//        \Eloquent::unguard();
+//        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//
+//        \DB::table('words')->truncate();
+//        \DB::table('language_word')->truncate();
+//        \DB::table('languages')->truncate();
+//        \DB::table('images')->truncate();
+//
+//       \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
+
+
+        Schema::disableForeignKeyConstraints();
         \DB::table('words')->truncate();
         \DB::table('language_word')->truncate();
         \DB::table('languages')->truncate();
         \DB::table('images')->truncate();
-
-       \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
 
         $faker = \Faker\Factory::create();
 
