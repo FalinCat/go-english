@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\WordController;
 use Illuminate\Http\Request;
@@ -24,6 +25,9 @@ Route::apiResource('words', WordController::class)->middleware('auth:sanctum');
 
 Route::get('/languages', [LanguageController::class, 'index']);
 Route::get('/languages/{id}', [LanguageController::class, 'show']);
+
+Route::get('/images', [ImageController::class, 'index']);
+Route::get('/images/{id}', [ImageController::class, 'show']);
 
 
 //Route::apiResource('english-words', EnglishWordController::class)->middleware('auth:sanctum');
